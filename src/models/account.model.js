@@ -14,8 +14,8 @@ const accountSchema = new mongoose.Schema(
       enum: {
         values: ["ACTIVE", "FROZEN", "CLOSED"],
         message: "Status must be ACTIVE, FROZEN, or CLOSED",
+        default: "ACTIVE",
       },
-      default: "ACTIVE",
     },
 
     currency: {
@@ -29,7 +29,7 @@ const accountSchema = new mongoose.Schema(
   }
 );
 
-accountSchema.indexe({user:1,status:1})
+accountSchema.index({user:1,status:1})
 
 const accountModel = mongoose.model("Account", accountSchema);
 
